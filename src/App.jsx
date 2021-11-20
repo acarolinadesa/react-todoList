@@ -19,6 +19,12 @@ class App extends Component {
     // this.tasks.push(newTask) // push de novaTask no array de tasks[]
     this.setState(newState)
   }
+
+  deleteTask(index) {
+    let arrayTasks = this.state.tasks
+    arrayTasks.splice(index, 1)
+    this.setState({tasks: arrayTasks})
+  }
   render() {
     return (
       // className - classe do CSS
@@ -26,8 +32,9 @@ class App extends Component {
         <h1 className="uppercase font-bold text-center text-2xl">REACT TODOLIST</h1>
         {/* Injecao de depenencia */}
         <FormTodoList createTask= { this.createTask.bind(this) }/>
-        <TodoList tasks={this.state.tasks}/>
-
+        <TodoList
+          deleteTodo = {this.deleteTask.bind(this)}
+          tasks={this.state.tasks}/>
       </div>
     )
   }
