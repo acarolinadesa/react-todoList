@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import deleteSVG from "../assets/img/delete.svg"
+
 class TodoCard extends Component {
 
   delete() {
@@ -8,11 +8,10 @@ class TodoCard extends Component {
   }
   render() {
     return (
-      <div className="flex">
-        <img
-          src={deleteSVG}
-          onClick={this.delete.bind(this)}/>
-        <h1>{ this.props.todo }</h1>
+      <div>
+        <div>{ this.props.todo }</div>
+        <button onClick={this.delete.bind(this)}>X</button>
+        <button>Editar</button>
       </div>
     )
   }

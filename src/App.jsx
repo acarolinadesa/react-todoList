@@ -1,7 +1,16 @@
 import { Component, useState } from 'react'
 import FormTodoList from './components/FormTodoList'
 import TodoList  from './components/TodoList'
+import styled from 'styled-components'
 
+const StyledList = styled.div`
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+`
 class App extends Component {
   constructor() {
     super()
@@ -28,14 +37,18 @@ class App extends Component {
   render() {
     return (
       // className - classe do CSS
-      <div className="p-40">
-        <h1 className="uppercase font-bold text-center text-2xl">REACT TODOLIST</h1>
-        {/* Injecao de depenencia */}
-        <FormTodoList createTask= { this.createTask.bind(this) }/>
-        <TodoList
-          deleteTodo = {this.deleteTask.bind(this)}
-          tasks={this.state.tasks}/>
-      </div>
+      <StyledList>
+        <div>
+          <img width="50" height="50" src="./assets/react"/>
+          {/* TODO: Fix image */}
+            <div>React TodoList</div>
+            {/* Injecao de depenencia */}
+            <FormTodoList createTask= { this.createTask.bind(this) }/>
+            <TodoList
+              deleteTodo = {this.deleteTask.bind(this)}
+              tasks={this.state.tasks}/>
+        </div>
+      </StyledList>
     )
   }
 }
