@@ -5,35 +5,25 @@ class FormTodoList extends Component {
   constructor(props) {
     //declaracao de propriedades e atributos desta classe
     super(props) //classe extende de Component
-    this.todo = ""
+    this.state = {todo: ''}
   }
   handlerChangeTodo(event) {
-    // event e o parametro passado por referência
-    this.todo = event.target.value
-    event.stopPropagation()
-    console.log(this.todo)
+    this.setState({todo: event.target.value})
   }
-  createTask(event) {
+  createTask2(event) {
+    if(this.state.todo.trim()) {
+      this.props.createTask(this.state.todo)
+    }
     event.preventDefault()
-    event.stopPropagation()
-    this.props.createTask(this.todo)
-    console.log(`${this.todo}`)
   }
   render() {
     return (
       <div>
-        <form
-          onSubmit= { this.createTask.bind(this) }>
-          <div>
+        <form onSubmit={ this.createTask2.bind(this) }>
             <input
               type="text"
-              placeholder="title"
-              onChange={ this.handlerChangeTodo.bind(this) }/>
-          </div>
-          <div>
-            <button
-              > Criar nota</button>
-          </div>
+              onChange={ this.handlerChangeTodo.bind(this) } />
+            <button>Cadastrar</button>
         </form>
       </div>
     )

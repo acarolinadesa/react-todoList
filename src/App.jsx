@@ -18,6 +18,7 @@ class App extends Component {
     this.state = {
       tasks: []
     } //objeto para adicionar com mais facilidade
+    // this.state = { isEditing: false };
   }
   createTask(todo) {
     const newTask = {todo}
@@ -25,7 +26,6 @@ class App extends Component {
     const newState = {
       tasks: newArrayTasks
     }
-    // this.tasks.push(newTask) // push de novaTask no array de tasks[]
     this.setState(newState)
   }
 
@@ -34,18 +34,23 @@ class App extends Component {
     arrayTasks.splice(index, 1)
     this.setState({tasks: arrayTasks})
   }
+
+  editTask(value, index) {
+    this.state.tasks[index] = {todo: value}
+    this.setState({tasks: [...this.state.tasks]})
+  }
   render() {
     return (
-      // className - classe do CSS
       <StyledList>
         <div>
-          <img width="50" height="50" src="./assets/react"/>
-          {/* TODO: Fix image */}
+          <img width="50" height="50" src="https://appmasters.io/static/react-47ce6e77f039020ee2e76a10c1e988e9.png"/>
             <div>React TodoList</div>
             {/* Injecao de depenencia */}
             <FormTodoList createTask= { this.createTask.bind(this) }/>
             <TodoList
+              // editTodo = {this.editTask.bind(this)}
               deleteTodo = {this.deleteTask.bind(this)}
+              editTodo = {this.editTask.bind(this)}
               tasks={this.state.tasks}/>
         </div>
       </StyledList>
