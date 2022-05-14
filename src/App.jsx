@@ -2,6 +2,8 @@ import { Component, useState } from 'react'
 import FormTodoList from './components/FormTodoList'
 import TodoList  from './components/TodoList'
 import styled from 'styled-components'
+import logo from './assets/react.png';
+
 
 const StyledList = styled.div`
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -43,7 +45,7 @@ class App extends Component {
     return (
       <StyledList>
         <div>
-          <img width="50" height="50" src="https://appmasters.io/static/react-47ce6e77f039020ee2e76a10c1e988e9.png"/>
+            <img width="90" height="80"src={logo} />
             <div>React TodoList</div>
             {/* Injecao de depenencia */}
             <FormTodoList createTask= { this.createTask.bind(this) }/>
