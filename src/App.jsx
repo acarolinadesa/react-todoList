@@ -45,7 +45,7 @@ class App extends Component {
     return (
       <StyledList>
         <div>
-            <img width="90" height="80"src={logo} />
+            <img width="90" height="70"src={logo} />
             <div>React TodoList</div>
             {/* Injecao de depenencia */}
             <FormTodoList createTask= { this.createTask.bind(this) }/>
