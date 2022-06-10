@@ -47,7 +47,7 @@ class App extends Component {
         <div>
             <img width="90" height="70"src={logo} />
             <div>React TodoList</div>
-            {/* Injecao de depenencia */}
+            {/* Injecao de dependencia */}
             <FormTodoList createTask= { this.createTask.bind(this) }/>
             <TodoList
               // editTodo = {this.editTask.bind(this)}

@@ -11,6 +11,7 @@ class FormTodoList extends Component {
     this.setState({todo: event.target.value})
   }
   createTask2(event) {
+
     if(this.state.todo.trim()) {
       this.props.createTask(this.state.todo)
     }
