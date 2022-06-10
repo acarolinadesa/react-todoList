@@ -18,7 +18,7 @@ npm run dev
 ```
 
 #### Deploy
-[React Todolist](https://vercel.com/acarolren/r-todo-list)
+[React Todolist](https://r-todo-list.vercel.app/)
 
 
 #### Recursos Utilizados
